@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR Result</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <style>
+        .container {
+            padding: 3vw 4vw 5vw;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-container">
+        <h1 class="main-title">Online OCR Dashboard</h1>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/#ocr-tool">OCR Tool</a></li>
+            <li><a href="/#info">How To Use</a></li>
+            <li><a href="/#about">About Us</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>OCR Completed!</h1>
+        <div class="result-content">
+            <h2>Uploaded Image</h2>
+            <img class="uploaded-img" src="{{ image_path }}" alt="Uploaded Image">
+            <h2>Extracted Text</h2>
+            <textarea  id="dynamic-textarea" class="extracted-text">{{ extracted_text }}</textarea>
+        </div>
+        <div class="result-btns">   
+            <a class="new-btn" href="{{ output_file_path }}" download>Download Output File</a>
+            <a class="new-btn" href="/">Back to Home</a>
+        </div>
+    </div>
+
+</body>
+</html>

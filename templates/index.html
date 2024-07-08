@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online OCR - Image to text</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
+
+</head>
+<body>
+    <nav class="nav-container">
+        <h1 class="main-title">Online OCR Dashboard</h1>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#ocr-tool">OCR Tool</a></li>
+          <li><a href="#info">How To Use</a></li>
+          <li><a href="#about">About Us</a></li>
+        </ul>
+    </nav>
+    
+    <div id="ocr-tool" class="menuBox">
+        <form action="/upload" method="post" enctype="multipart/form-data" onsubmit="startCountdown()">
+            <div>
+                <label for="file">Upload Image:</label>
+                <input type="file" name="file" accept="image/*" required>
+            </div>
+            <div>
+                <label for="language">Select Language:</label>
+                <select name="language" required>
+                    <option value="en">ENGLISH</option>
+                    <option value="es">SPANISH</option>
+                    <option value="fr">FRENCH</option>
+                    <option value="de">GERMAN</option>
+                    <option value="it">ITALIAN</option>
+                </select>
+            </div>
+            <div>
+                <label for="output_format">Output Format:</label>
+                <select name="output_format" required>
+                    <option value="docx">Microsoft Word (docx)</option>
+                    <option selected value="txt">Plain Text (txt)</option>
+                    <option value="xlsx">Microsoft Excel (xlsx)</option>
+                </select>
+            </div>
+            <div><button class="btn" type="submit" id="convertBtn">Convert</button></div>
+        </form>
+    </div>
+    <div id="info" class="container">
+        <div class="description">
+            <h2 class="title-h2">How to convert Image to text?</h2>
+            <ol>
+                <li class="list-text"><strong>Upload Image: <br></strong> Upload Image or PDF document for conversion. You can upload any type of input images or documents, such as PDF, Tiff, PNG, BMP and other. One limitation for the input document is that the file size is no more than 15 MB.</li>
+                <li class="list-text"><strong>Language and output: <br></strong> You should select the appropriate recognition language for the most accurate conversion image to text. And also, you may choose output format (MS Doc, Excel or plain text file).</li>
+                <li class="list-text"><strong>Download: <br></strong> After conversion, you can download the converted editable file by clicking on the link or copy extracted text into the clipboard.</li>
+            </ol>
+            <h2 class="title-h2">Image to text converter – what is this?</h2>
+            <div class="about-ocr">
+                <p> Online OCR tool is the Image to text converter based on Optical character recognition technology. Use our service to extract text and characters from scanned PDF documents (including multipage files), photos, and digital camera-captured images.</p>
+                <p>If you need to extract text from a photo, use our image to text converter. If you have a scanned book in PDF format and want to create a searchable PDF, our service is the best solution to convert PDF to Word or Excel!</p>
+                <p>You don't need to waste time rewriting a scanned lecture - just upload the file and convert image to text.</p>
+                <p>Using advanced image pre-processing algorithms and OCR technology, our service scans text from your images and extracts it to any editable format.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="about" class="about">
+        <blockquote class="about-text">
+            <h2>About Us</h2>
+            " Welcome to our OCR Dashboard project! We are Saqib Ali Butt and Abdullah Naveed, final year BSCS students at the University of Central Punjab. As part of our Programming with Big Data (PBD) course, we developed this OCR Dashboard using Python, FastAPI, HTML, CSS, and EasyOCR to efficiently extract and process text from images. This project embodies our dedication to creating a user-friendly and efficient tool for various text digitization applications. For more information, feel free to contact us at <a class="mail" href="mailto:saqibbutt10000@gmail.com">saqibbutt10000@gmail.com</a> and <a class="mail" href="mailto:abdullahnaveed5547@gmail.com">abdullahnaveed5547@gmail.com</a> "
+        </blockquote>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="/static/js/script.js"></script>
+    <script>
+        function startCountdown() {
+            var button = document.getElementById("convertBtn");
+            var countdown = 10; // Approximate countdown time
+
+            button.disabled = true;
+
+            var countdownInterval = setInterval(function() {
+                button.textContent = "Converting... (" + countdown + ")";
+                countdown--;
+
+                if (countdown < 0) {
+                    clearInterval(countdownInterval);
+                    button.textContent = "Converting...";
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
